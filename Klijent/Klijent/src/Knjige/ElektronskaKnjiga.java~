@@ -1,0 +1,80 @@
+package Knjige;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.util.ArrayList;
+import java.io.Serializable;
+
+
+public class ElektronskaKnjiga extends Knjiga implements Serializable
+{
+  private File sadrzajKnjige;
+  private String  putanja;
+  private boolean zakljucan=false;
+  
+  public ElektronskaKnjiga()
+  {
+    super();
+  }
+  
+  public ElektronskaKnjiga(String n,String is,String pisac,int strana,String sadrzaj,String izdavac,File naslovna,double c,int k,ArrayList<String>z,File knjiga)
+  {
+    super(n,is,pisac,strana,sadrzaj,izdavac,naslovna,c,k,z);
+    sadrzajKnjige=new File("copy"+File.separator+naziv+".txt");
+    FileInputStream in=null;
+    FileOutputStream out=null;
+    
+    try{
+     
+      putanja=sadrzajKnjige.getPath();
+      in=new FileInputStream(knjiga);
+      out=new FileOutputStream(sadrzajKnjige);
+      byte[] bafer=new byte[2*1024*1024];
+      int m=0;
+      while((m=in.read(bafer))>0)
+        out.write(bafer,0,m);
+      
+      in.close();
+      out.close();
+    }catch (Exception e)
+    { e.printStackTrace();}
+  }
+  
+  
+  public void ZakljucajKnjigu(boolean ba)
+  {
+    zakljucan=ba;
+  }
+  
+  public boolean getZakljucan()
+  {
+    return zakljucan;
+  }
+  
+  public void setSadrzajKnjige(File knjiga)
+  {
+    FileInputStream in=null;
+    FileOutputStream out=null;
+    File sadrzajKnjige=new File(naziv+".txt");
+    
+    try{
+      in=new FileInputStream(sadrzajKnjige);
+      out=new FileOutputStream(knjiga);
+      int m=0;
+      byte[] bafer=new byte[2*1024*1024];
+      while((m=in.read(bafer))>0)
+        out.write(bafer,0,m);
+    }catch (Exception e)
+    { e.printStackTrace();}}
+  
+  public void setPutanja(String p)
+  {
+    putanja=p;
+  }
+  public String getPutanja()
+  {
+    return putanja;
+  }}
+      
+      
+    

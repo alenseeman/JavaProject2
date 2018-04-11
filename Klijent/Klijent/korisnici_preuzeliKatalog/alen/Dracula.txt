@@ -1,0 +1,7 @@
+Naziv knjige: Dracula
+ ISBN: 65-55-15
+ Autor: Bram Stoker
+ Broj stranice: 310
+ Kratak sadrzaj: The grey of the morning has passed, and the sun ishigh over the distant horizon, which seems jagged, whether with trees orhills I know not, for it is so far off that big things and little aremixed.
+ Izdavac: Gutenberg
+ Cijena: 28.0

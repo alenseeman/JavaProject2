@@ -1,0 +1,33 @@
+package GlavniServer;
+import java.io.*;
+import java.util.Random;
+import Server_Banka.*;
+  
+  public class ServerMetode
+  {
+    public static void vratiVrijeme(int a)
+    {
+      Trgovina.vrijeme=a;} 
+    public boolean provjeraKorisnika(String a,String b)
+ {
+     try{
+      String korisnik;
+      File fajl = new File("C:\\Users\\Semanic\\Documents\\NetBeansProjects\\projektni2016\\korisnici.txt");
+      BufferedReader korisnikfajl = new BufferedReader(new FileReader(fajl));
+   while((korisnik=korisnikfajl.readLine())!=null)
+        {
+            String ime=korisnik.split("#")[0];
+            String sifra=korisnik.split("#")[1];
+            if(ime.equals(a) && sifra.equals(b))
+          return true;
+        }
+           return false;
+        }catch (Exception e)
+         {
+            e.printStackTrace();
+         return false;
+        }}
+    
+    
+    }
+    

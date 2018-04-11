@@ -1,0 +1,148 @@
+package Knjige;
+import java.util.Iterator;
+import java.util.ArrayList;
+import java.io.File;
+import java.io.Serializable;
+
+public class Knjiga implements Serializable{
+  public static final String valuta="BAM";
+  protected String naziv;
+  protected String isbn;
+  protected String imePisca;
+  protected int brojStrana;
+  protected String kratakSadrzaj;
+  protected String izdavac;
+  protected String naslovnaStrana;
+  protected double cijena;
+  protected int kolicina;
+  protected ArrayList<String> zanr=new ArrayList<String>();
+  protected String serijal;
+  
+  
+  
+  public Knjiga()
+  { super();
+  }
+  public Knjiga(String n,String is,String pisac,int strana,String sadrzaj,String izdavac,File naslovna,double c,int k,ArrayList<String>z)
+  {
+    naziv=n;
+    isbn=is;
+    imePisca=pisac;
+    brojStrana=strana;
+    kratakSadrzaj=sadrzaj;
+    this.izdavac=izdavac;
+    cijena=c;
+    kolicina=k;
+    zanr=z;
+    try{  
+    if(!naslovna.getName().endsWith(".jpg"))
+      throw new Exception("Naziv fajla nije dobar!");
+    naslovnaStrana=naslovna.getAbsolutePath();
+    }catch(Exception ex){
+      ex.printStackTrace();
+    }}
+  
+  @Override
+  public String toString()
+  {
+    return "Naziv knjige: "+naziv+" Pisac: "+imePisca;
+  }
+  
+  public String getNaziv()
+  {
+    return naziv;
+  }
+  public String getImePisca()
+  {
+    return imePisca;
+  }
+  public String getIsbn()
+  {
+    return isbn;
+  }
+  public int getBrojStrana()
+  {
+    return brojStrana;
+  }
+  public String getKratakSadrzaj()
+  {
+    return kratakSadrzaj;
+  }
+  public String getIzdavac()
+  {
+    return izdavac;
+  }
+  public double getCijena()
+  {
+    return cijena;
+  }
+  public int getKolicina()
+  {
+    return kolicina;
+  }
+  public void setImePisca(String p)
+  {
+    imePisca=p;
+  }
+  public void setIsbn(String i)
+  {
+    isbn=i;
+  }
+  public void setBrojStrana(int br)
+  {
+    brojStrana=br;
+  }
+  public void setKratakSadrzaj(String s)
+  {
+    kratakSadrzaj=s;
+  }
+  public void setIzdavac(String i)
+  {
+    izdavac=i;
+  }
+  public void setCijena(double c)
+  {
+    cijena=c;
+  }
+  public void setKolicina(int k)
+  {
+    kolicina=k;
+  }
+  public void dodajZanr(String za)
+  {
+    if(!zanr.contains(za))
+      zanr.add(za);
+  }
+  public ArrayList<String> getZanr()
+  {
+    ArrayList<String>b= new ArrayList<String>();
+    for(Iterator<String>it=zanr.iterator();it.hasNext();)
+    {
+      String s=it.next();
+     b.add(s);
+    }
+   return b;
+  
+  }
+  
+  public void setZanr(ArrayList<String> b)
+  {
+    zanr=b;
+  }
+
+  public void setSerijal(String s)
+  {
+    serijal=s;
+  }
+  
+  public String getSerijal()
+  {
+    return serijal;
+  }
+}
+  
+    
+    
+    
+    
+  

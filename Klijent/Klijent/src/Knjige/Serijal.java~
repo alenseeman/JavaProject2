@@ -1,0 +1,63 @@
+package Knjige;
+import java.util.ArrayList;
+import java.io.Serializable;
+import java.util.Iterator;
+
+public class Serijal implements Serializable
+{
+  ArrayList<Knjiga> serijal= new ArrayList<Knjiga>();
+  private String imeSerijala;
+  private int brojKnjiga;
+  private double cijenaSerijala;
+  
+  
+  public Serijal()
+  {
+    super();
+  }
+  public Serijal(ArrayList<Knjiga> s,String ime,int broj)
+  {
+    if(s.size()==broj || s.size()>broj)
+    {
+    if(broj>1)
+    {
+    serijal=s;
+    imeSerijala=ime;
+    brojKnjiga=broj;
+    cijenaSerijala=0;
+    for(Iterator<Knjiga> it=serijal.iterator();it.hasNext();)
+    { Knjiga knjiga=(Knjiga) it.next();
+   cijenaSerijala+=knjiga.getCijena()*(0.85);
+    }}}
+    else
+      System.out.println("Nije moguce napraviti serijal,pokusajte ponovo sa dvije ili vise knjiga.");
+    }
+  
+  
+  public void setSerijal(ArrayList<Knjiga> lista)
+  {
+    serijal=lista;
+  }
+  
+  public ArrayList<Knjiga> getSerijal()
+  {
+    return serijal;
+  }
+  public void setBrojKnjiga(int b)
+  {
+brojKnjiga=b;
+  }
+  public int getBrojKnjiga()
+  {
+    return brojKnjiga;
+  }
+  public String getImeSerijala()
+  {
+    return imeSerijala;
+  }
+  public void setImeSerijala(String ime)
+  {
+    imeSerijala=ime;
+  }}
+    
+    
